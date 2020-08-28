@@ -1,0 +1,43 @@
+---
+action: post
+username:  ansible
+password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          66373161353264626437326262306636373935356535653661646463393539376161613635363062
+          3634313166616439313734616462356132356632646133620a316461313765636430336337633634
+          33356662623266333630336331663962626331626531366235613466386539616137616362633439
+          3666393431636335650a656431623734636265633835663730373464393339306665376562333733
+          3532
+users: [ ansible ]
+protocol: https
+validate_certs:  no
+host: dmzmso
+# 
+tenant: sm-ansible-T1
+display_name: sm-ansible-T1-DSP
+#
+schema: sm-schema1-ansible
+template: SM-Template1-ansible
+sites: [ "DMZ-RCDN-Fabric7", "DMZ-RCDN-Site1"]
+site1: DMZ-RCDN-Fabric7
+site2: DMZ-RCDN-Site1
+#
+vrf: sm-VRF1-ansible
+#
+bd: sm-BD1-ansible
+#
+anp: ANP1
+epg1: web-ansible
+epg2: app-ansible
+epg3: db-ansible
+#
+filter1: filter1
+ethertype1: unspecified
+contract1: web2app
+contract2: app2db
+#
+vmm_F7: Fab7-Leaf101-VMM
+vmm_F8: Fab-8-VMM
+
+
+# These are the Variables and values that are used by Ansible Scripts for ACI
