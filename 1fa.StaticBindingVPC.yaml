@@ -43,6 +43,7 @@
         epg: "{{ epg1 }}"
         path: "vpc-port-test"
         type: vpc
+        mode: regular
         pod: pod-1
         leaf: 101-102
         vlan: 1001
