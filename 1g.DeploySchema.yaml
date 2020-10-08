@@ -23,4 +23,5 @@
       
       
 # usage: ansible-playbook 1g.DeploySchema.yaml   -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1g.DeploySchema.yaml    -i hosts -vvv
 # mso_schema_template_deploy – Deploy schema templates to sites: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_deploy_module.html#mso-schema-template-deploy-module
