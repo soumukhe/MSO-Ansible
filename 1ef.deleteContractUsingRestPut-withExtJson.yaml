@@ -1,0 +1,29 @@
+---
+
+- name: add ANP & EPG
+  hosts: mso
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - external_vars.yml
+
+  tasks:      
+   - name: update Schema with PUT
+     cisco.mso.mso_rest:
+        host: "{{ host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "no"
+        use_proxy: false
+        path: /mso/api/v1/schemas/5fff49395100001c1701af94
+        method: put
+        content: "{{ lookup('template', 'schema.json') }}"
+     delegate_to: localhost      
+      
+      
+      
+# usage: ansible-playbook --ask-vault-pass 1ef.deleteContractUsingRestPut-withExtJson.yaml -i hosts -vvv
+# usage: ansible-playbook --vault-id vaultPass 1ef.deleteContractUsingRestPut-withExtJson.yaml -i hosts -vvv
+# cisco.mso.mso_schema_template_anp_epg_contract – Manage EPG contracts in schema templates: https://docs.ansible.com/ansible/latest/collections/cisco/mso/mso_schema_template_anp_epg_contract_module.html#ansible-collections-cisco-mso-mso-schema-template-anp-epg-contract-module
+# mso_schema_template_anp_epg – Manage Endpoint Groups (EPGs) in schema templates: https://docs.ansible.com/ansible/latest/modules/mso_schema_template_anp_epg_module.html#mso-schema-template-anp-epg-module
